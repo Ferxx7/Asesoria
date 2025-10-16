@@ -51,7 +51,44 @@
         </div>
       </div>
       <div class="hero-media">
-        <img src="/assets/img/hero-bitcoin-laptop.jpeg" alt="Bitcoin sobre un portátil" width="1200" height="900" loading="eager" decoding="async">
+        <div class="hero-visual">
+          <div class="crypto-widget">
+            <div class="crypto-header">
+              <div class="crypto-icon-large">₿</div>
+              <div class="crypto-info-large">
+                <span class="crypto-name-large">Bitcoin</span>
+                <span class="crypto-price-large" id="btc-price">Cargando...</span>
+                <span class="crypto-change" id="btc-change">-</span>
+              </div>
+            </div>
+            <div class="price-stats">
+              <div class="stat-item">
+                <span class="stat-label">24h Alto</span>
+                <span class="stat-value" id="btc-high">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">24h Bajo</span>
+                <span class="stat-value" id="btc-low">-</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Volumen</span>
+                <span class="stat-value" id="btc-volume">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-chart-bg">
+          <svg viewBox="0 0 1200 400" class="background-chart">
+            <defs>
+              <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.05" />
+              </linearGradient>
+            </defs>
+            <path id="btc-chart-line" stroke="#0ea5e9" stroke-width="2" fill="none" opacity="0.6"/>
+            <path id="btc-chart-area" fill="url(#bgGradient)" opacity="0.4"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -347,4 +384,3 @@
   <script src="main.js" defer></script>
 </body>
 </html>
-
