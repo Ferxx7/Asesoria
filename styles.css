@@ -119,6 +119,295 @@ a { color: inherit; text-decoration: none; }
 .hero-cta { display: flex; gap: var(--space-4); align-items: center; }
 .hero-media img { width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(2, 8, 23, 0.12); }
 
+/* Hero Visual Components */
+.hero-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.crypto-widget {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: var(--space-6);
+}
+
+.crypto-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.crypto-icon-large {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+}
+
+.crypto-info-large {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.crypto-name-large {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.crypto-price-large {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.crypto-change {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.crypto-change.positive {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.crypto-change.negative {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.price-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.hero-chart-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.background-chart {
+  width: 100%;
+  height: 100%;
+}
+
+#btc-chart-line {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawBackgroundLine 4s ease-in-out forwards;
+}
+
+#btc-chart-area {
+  opacity: 0;
+  animation: fadeInBackgroundArea 2s ease-in-out 2s forwards;
+}
+
+/* Additional animated chart elements */
+.hero-chart-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><linearGradient id="gridGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%230ea5e9;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%230ea5e9;stop-opacity:0.02"/></linearGradient></defs><g opacity="0.3"><line x1="0" y1="100" x2="1200" y2="100" stroke="%230ea5e9" stroke-width="1" stroke-dasharray="10,5"><animate attributeName="stroke-dashoffset" values="0;15;0" dur="2s" repeatCount="indefinite"/></line><line x1="0" y1="200" x2="1200" y2="200" stroke="%230ea5e9" stroke-width="1" stroke-dasharray="10,5"><animate attributeName="stroke-dashoffset" values="0;15;0" dur="2s" repeatCount="indefinite" begin="0.5s"/></line><line x1="0" y1="300" x2="1200" y2="300" stroke="%230ea5e9" stroke-width="1" stroke-dasharray="10,5"><animate attributeName="stroke-dashoffset" values="0;15;0" dur="2s" repeatCount="indefinite" begin="1s"/></line></g></svg>');
+  animation: gridPulse 3s ease-in-out infinite;
+}
+
+.hero-chart-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><g opacity="0.4"><circle cx="200" cy="150" r="3" fill="%230ea5e9"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></circle><circle cx="400" cy="120" r="3" fill="%230ea5e9"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.3s"/></circle><circle cx="600" cy="180" r="3" fill="%230ea5e9"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.6s"/></circle><circle cx="800" cy="100" r="3" fill="%230ea5e9"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.9s"/></circle><circle cx="1000" cy="140" r="3" fill="%230ea5e9"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.2s"/></circle></g></svg>');
+  animation: dataPoints 4s ease-in-out infinite;
+}
+
+@keyframes drawBackgroundLine {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInBackgroundArea {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes dataPoints {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Scroll indicator animation */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+@keyframes scrollIndicator {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.earning-highlight {
+  display: flex;
+  justify-content: center;
+}
+
+.earning-card {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 20px;
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.earning-icon {
+  font-size: 24px;
+}
+
+.earning-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.earning-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.earning-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Hero Visual Responsive */
+@media (max-width: 768px) {
+  .crypto-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .crypto-card {
+    padding: var(--space-3);
+  }
+  
+  .trading-chart {
+    padding: var(--space-4);
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .chart-stats {
+    align-items: flex-start;
+  }
+}
+
 /* Sections placeholder spacing */
 .section { padding-block: clamp(72px, 8vw, 120px); }
 .placeholder { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -541,5 +830,3 @@ a { color: inherit; text-decoration: none; }
   .metrics { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; }
 }
-
-
